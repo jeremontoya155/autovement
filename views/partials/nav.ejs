@@ -1,0 +1,139 @@
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0; /* Asegura que no haya margen por defecto */
+    padding: 0; /* Asegura que no haya relleno por defecto */
+}
+.sidenav {
+    height: 100%;
+    width: 3.7rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #252525;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 1em;
+    z-index: 1; /* Asegura que esté debajo del contenido principal */
+}
+.sidenav a {
+    padding: 8px 8px 8px 16px;
+    text-decoration: none;
+    font-size: 1.1em;
+    width:100%;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: 0.3s;
+}
+.sidenav a i {
+    width:1em;
+}
+.sidenav a span {
+    display:none;
+}
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+.togglebtn {
+    position: absolute;
+    border-top-left-radius: .3em;
+    border-bottom-right-radius: .3em;
+    border-bottom-left-radius: .3em;
+
+    padding:10px;
+
+    top: 10px;
+    right: 10px;
+    width:1em;
+    height: 1em;
+    background-color:#ea9e04;
+    font-size: 2em;
+    cursor: pointer;
+    color: #007c98;
+    z-index: 99;
+    transition: all .6s linear;
+
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    i{  
+    font-size:.5em;
+    }
+}
+.togglebtn:hover{
+    background-color:#ffc552;
+    color:#fff;
+    border: 1px solid #007c98;  
+}
+.sidenav.collapsed a i {
+    margin: 0;
+    text-align: center;
+    width: 95%;
+    
+}
+.sidenav.collapsed .togglebtn{
+    border-top-right-radius: .3em;
+    border-bottom-left-radius: 0;
+
+}
+.sidenav.collapsed .togglebtn i.fa-bars {
+    display: block; 
+}
+.sidenav:not(.collapsed) a span {
+    display: inline-block;
+}
+.menuAdmin,
+.menu{ 
+    margin-top:3em;
+}
+.botonAdmin{
+    border: 2px solid #007c98;
+    margin-top: 2px;
+}
+.botonAdminNav:hover{
+    color:#ea9e04 !important;
+}
+</style>
+<% if (isAdmin) { %>
+<div id="mySidenav" class="sidenav collapsed">
+    <span class="togglebtn" onclick="toggleNav()"><i class="fas fa-bars" id="toggle"></i></span>
+    <% if (isAdmin) { %>
+        <div class="menuAdmin">
+            <a href="/new" class="btn btn-sm botonAdmin botonAdminNav"><i class="fas fa-plus"></i><span>Nuevo PowerBi</span></a>
+            <a href="/users" class="btn btn-sm botonAdmin botonAdminNav"><i class="fas fa-user"></i><span>Usuarios</span></a>
+            <a href="/admin_roles" class="btn btn-sm botonAdmin botonAdminNav"><i class="fas fa-user-cog"></i><span>Roles usuarios</span></a>
+        </div>
+    <% } %>
+    <div class="menu">
+        <a href="/"><i class="fas fa-home"></i><span>Home</span></a>
+        <% if (isAdmin) { %>
+            <!-- <a href="/admin_roles"><i class="fas fa-info-circle"></i><span>About</span></a> -->
+        <% } %>
+       
+       
+    </div>
+</div>
+<% } %>
+
+<script>
+    function toggleNav() {
+        const sidenav = document.getElementById("mySidenav");
+        const toggle = document.getElementById("toggle");
+        if (sidenav.classList.contains('collapsed')) {
+            // Abrir el menú lateral
+            sidenav.classList.remove('collapsed');
+            sidenav.style.width = "17em"; 
+            toggle.classList.remove('fa-bars');
+            toggle.classList.add('fa-times'); // Cambiar a icono de cruz
+        } else {
+            // Cerrar el menú lateral
+            sidenav.classList.add('collapsed');
+            sidenav.style.width = "3.7rem";
+            toggle.classList.remove('fa-times'); // Cambiar de vuelta a icono de bars
+            toggle.classList.add('fa-bars');
+        }
+    }
+</script>
