@@ -1,65 +1,47 @@
 
 <style>
     .banner{
-        background-color: #007c98;
+        background-color: #212121;
         color: #f8f9fa;
         padding: 1.6em;
         width:100%;
-        text-align: center;
         display: flex;
         align-items: center;
         justify-content: center;
         flex-flow: column wrap; 
         margin:0;
-        height: fit-content;
         position: relative;
         margin-bottom:15px;
-
-        .underline { 
-            height: 5px;
-            width:400px;
-            background-color: #ea9e04;
-        }
-
-        .logo1, .logo2{
-            flex:1;
-            margin:0;
-            font-weight: 600;
-        }
-        .logo1 {
-            font-size: 2.3em;
-            margin-top:5px;
-            margin-left:10px;
-            margin-bottom:10px;
-        }
-        .logo2 {
-            font-size: 1.8em;
-        }
-        .farmacias{
-            letter-spacing: 0.35em;
-        }
+    }
+    .banner img{
+        max-height: 50px;
+        transition: all 2s ease;
+    }
+    .banner img:hover{
+        transform:scale(1.1);
+        cursor:pointer;
     }
     .boton {
         padding:10px;
         border: 0px solid #252525;
         border-radius:1em;
-        background-color: #ea9e04;
+        background-color: #ff6700;
         color: #fff;
     }
     .boton:hover{
-        background-color: #ffc041;
-        color: #007c98; 
+        background-color: #bc4b00;
+        color: #fff; 
     }
     .flotanteIzq{
         position: absolute;
-        top: 50px;
+        top: 30px;
         left: 100px;
     }
     .flotanteDer{
         border-radius:1em;
         padding:10px;
         position: absolute;
-        top: 50px;
+        top: 30px;
         right: 100px;
     }
 </style>
@@ -70,8 +52,5 @@
     <% if (loggedIn) { %>
         <a href="/logout" class="btn btn-danger flotanteDer"><i class="fas fa-sign-out-alt"></i>  Salir</a>
     <% } %>
-         
-    <div class="underline"></div>
-    <h1 class="logo1 farmacias">FARMACIAS</h1>  
-    <h1 class="logo2">SANCHEZ ANTONIOLLI</h1>
+     <img src="/images/autoVement.png" alt="autoVement" onclick="window.location.href='/'"/>
 </div>

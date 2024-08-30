@@ -11,7 +11,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: #252525;
+    background-color: #212121;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 1em;
@@ -49,10 +49,10 @@ body {
     right: 10px;
     width:1em;
     height: 1em;
-    background-color:#ea9e04;
+    background-color:#ff6700;
     font-size: 2em;
     cursor: pointer;
-    color: #007c98;
+    color: #fff;
     z-index: 99;
     transition: all .6s linear;
 
@@ -64,9 +64,9 @@ body {
     }
 }
 .togglebtn:hover{
-    background-color:#ffc552;
+    background-color:#ff3c00;
     color:#fff;
-    border: 1px solid #007c98;  
+    border: 1px solid #ff6700;  
 }
 .sidenav.collapsed a i {
     margin: 0;
@@ -90,14 +90,14 @@ body {
     margin-top:3em;
 }
 .botonAdmin{
-    border: 2px solid #007c98;
+    border: 2px solid #ff6700;
     margin-top: 2px;
 }
 .botonAdminNav:hover{
-    color:#ea9e04 !important;
+    border: 2px solid #fff;
+    color:#ff6700 !important;
 }
 </style>
-<% if (isAdmin) { %>
 <div id="mySidenav" class="sidenav collapsed">
     <span class="togglebtn" onclick="toggleNav()"><i class="fas fa-bars" id="toggle"></i></span>
     <% if (isAdmin) { %>
@@ -107,16 +107,11 @@ body {
             <a href="/admin_roles" class="btn btn-sm botonAdmin botonAdminNav"><i class="fas fa-user-cog"></i><span>Roles usuarios</span></a>
         </div>
     <% } %>
-    <div class="menu">
-        <a href="/"><i class="fas fa-home"></i><span>Home</span></a>
-        <% if (isAdmin) { %>
-            <!-- <a href="/admin_roles"><i class="fas fa-info-circle"></i><span>About</span></a> -->
-        <% } %>
-       
-       
-    </div>
+    <% if (!isAdmin) { %>
+        <hr></hr>
+    <% } %>
+    <a href="https://cotizadorautovement.up.railway.app" target="_blank" class="btn btn-sm botonAdmin botonAdminNav"><i class="fas fa-money-check-alt"></i><span>Cotizador</span></a>
 </div>
-<% } %>
 
 <script>
     function toggleNav() {

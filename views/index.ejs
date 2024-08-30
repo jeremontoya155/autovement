@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FSA - PowerBi</title>
+    <title>Auto Vement</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Custom styles -->
@@ -25,7 +25,7 @@
             margin-top: 30px;
         }
         .table-container {
-            max-width: 1000px;
+            max-width: 1250px;
             margin: 0 auto;
             border-radius: 10px;
         }
@@ -75,7 +75,7 @@
         }
         .modal-header {
             max-height: 2px !important;
-            background-color: rgba(0, 124, 152, .7);
+            background-color: rgba(255, 103, 0,.8);
             display: flex;
             align-items: center;
             justify-content: flex-end;
@@ -84,18 +84,7 @@
             width: 100%;
             height: 100%;
         }
-        .logo{
-            bottom:0;
-            display:flex;
-            align-items:center;
-            justify-content: center;
-            width:100%;
-        }
-        .logo img{
-            
-            max-width: 350px;
         
-        }
         .center{
             display:flex;
             align-items:center;
@@ -113,16 +102,28 @@
             align-items:center;
             max-width:500px;
             gap:5px;
+            transition: all 0.3s ease;
         }
         .botonAdmin:hover {
             text-decoration: none;
-            color:#007c98 !important;
+            color:#fff !important;
+            transform: translateY(-4px);
+            box-shadow: 3px 3px 5px rgba(21,21,21,.3);
         }
         .titulo{
             display:flex;   
             align-items:center;
             justify-content: space-between;
             margin-bottom:2em;
+            min-width: 900px;
+        }
+        .informe{
+            background-color:rgba(255, 103, 0,.8) ;
+            color: #fff;
+        }
+        .informe:hover{
+            background-color:#bc4b00 ;
+            color: #fff;
         }
         .carousel-control-prev-icon,
         .carousel-control-next-icon {
@@ -161,7 +162,7 @@
     <div class="container">
         <div class="table-container">
             <div class="titulo">
-                <h1 class="text-center">Listado de PowerBi FSA</h1>
+                <h1 class="text-center">Informes Vement</h1>
                 <% if (isAdmin) { %>
                     <div class="contenedorDerecho">
                         <div class="admin-container">
@@ -192,7 +193,7 @@
                                 <td><%= item.categoria %></td>
                                 <td><%= item.nombre %></td>
                                 <td><%= item.descripcion %></td>
-                                <td><a href="#" class="btn btn-sm btn-info open-powerbi-modal" data-id="<%= item.id %>">Informe</a></td>
+                                <td><a href="#" class="btn btn-sm informe open-powerbi-modal" data-id="<%= item.id %>">Informe</a></td>
                                 <td><%= item.vigencia %></td>
                                 <% if (isAdmin) { %>
                                     <td>
@@ -205,9 +206,6 @@
                 </tbody>
             </table>
         </div>
-        <div class="logo">
-            <img src="./images/Logo azul.png" alt="Logo" class="logo-img">
-        </div>
     </div>
     <!-- Modal -->
     <div class="modal fade" id="powerBIModal" tabindex="-1" role="dialog" aria-labelledby="powerBIModalLabel" aria-hidden="true">
@@ -215,7 +213,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     
-                    <span class="headerTitle">Farmacias Sanchez Antoniolli</span>
+                    <span class="headerTitle">AutoVement</span>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
